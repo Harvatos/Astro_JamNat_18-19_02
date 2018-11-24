@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    public List<BasicRythmed> RythmedObjects;
+    
+    public List<GameObject> RythmedObjects;
     public float TickTime = 1;
+
+    public static GameController instance;
 
     private float nextTick = 0;
 
-	// Use this for initialization
-	void Start () {
+    void Awake() {
+        if (instance != null) {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+
+        // Use this for initialization
+        void Start () {
 	}
 	
 	// Update is called once per frame
@@ -20,8 +31,8 @@ public class GameController : MonoBehaviour {
         nextTick += dt;
 
         if (nextTick >= TickTime) {
-            foreach (BasicRythmed br in RythmedObjects) {
-                br.Tick();
+            foreach (GameObject br in RythmedObjects) {
+                br.GetComponent<BasicRythmed>().Tick();
             }
             nextTick = 0;
         }
