@@ -8,9 +8,20 @@ public class PathPoint : MonoBehaviour{
 
 	public PathPoint nextPathPoint;
 
+	public void ExecutePathBehavior(BlobCharacter blob)
+	{
+		if (nextPathPoint)
+		{
+			blob.Path_GoToNextPoint(nextPathPoint);
+		}
+	}
+
 	public void RotateObjectTowardPath(Transform toRotate)
 	{
-		toRotate.LookAt(nextPathPoint.transform);
+		if (nextPathPoint)
+		{
+			toRotate.LookAt(nextPathPoint.transform);
+		}
 	}
 
 #if UNITY_EDITOR
