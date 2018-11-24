@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PathPoint : MonoBehaviour{
-	
+
 	public bool isLethal = false;
 
 	public PathPoint nextPathPoint;
