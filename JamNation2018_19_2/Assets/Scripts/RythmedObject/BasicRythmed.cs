@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface BasicRythmed {
 
-    void Tick(); 
+    void Tick();
 }
