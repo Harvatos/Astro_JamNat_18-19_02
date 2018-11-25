@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathPoint_Cycling : PathPoint, BasicRythmed {
+public class PathPoint_Cycling : PathPoint, ITick {
 
 	public List<PathPoint> pathCycle;
 
@@ -10,7 +10,7 @@ public class PathPoint_Cycling : PathPoint, BasicRythmed {
 
 	private void Start()
 	{
-		//Add to Tick event
+		GameController.instance.AddTickObject(this);
 	}
 
 	[ContextMenu("Tick")]

@@ -8,7 +8,7 @@ public class PathPoint : MonoBehaviour{
 
 	public PathPoint nextPathPoint;
 
-	public void ExecutePathBehavior(BlobCharacter blob)
+	public virtual void ExecutePathBehavior(BlobCharacter blob)
 	{
 		if (nextPathPoint)
 		{

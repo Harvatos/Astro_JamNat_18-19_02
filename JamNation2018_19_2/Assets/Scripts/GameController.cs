@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-    private List<BasicRythmed> RythmedObjects;
+    private List<ITick> tickedObjects;
     public float TickTime = 1;
 
     public static GameController instance;
@@ -12,36 +12,34 @@ public class GameController : MonoBehaviour {
 
     private bool SpacePressed = false;
 
-    void Awake() {
-        if (instance != null) {
+    private void Awake()
+	{
+        if (instance != null)
+		{
             Destroy(gameObject);
             return;
         }
         instance = this;
     }
 
-    // Use this for initialization
-    void Start () {
-	}
-
-    public void AddBasicRythmed(BasicRythmed basic) {
-        RythmedObjects.Add(basic);
+    public void AddTickObject(ITick toAdd)
+	{
+		tickedObjects.Add(toAdd);
     }
 	
-	// Update is called once per frame
-	void Update () {
+
+	private void Update ()
+	{
         float dt = Time.deltaTime;
         SpacePressed = Input.GetKey(KeyCode.Space);
 
         nextTick += dt;
 
         if (nextTick >= TickTime) {
-            foreach (BasicRythmed br in RythmedObjects) {
+            foreach (ITick br in tickedObjects) {
                 br.Tick();
             }
             nextTick = 0;
         }
 	}
 }
-
-public enum Direction { haut, bas, droite, gauche }
