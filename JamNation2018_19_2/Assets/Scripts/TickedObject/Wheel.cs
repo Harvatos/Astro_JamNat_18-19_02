@@ -17,7 +17,7 @@ public class Wheel : MonoBehaviour, ITick {
 	[ContextMenu("Tick")]
 	public void Tick()
 	{
-		anim.SetTrigger("Tick");
+		//anim.SetTrigger("Tick");
     }
 
 

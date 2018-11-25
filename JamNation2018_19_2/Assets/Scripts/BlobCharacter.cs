@@ -7,7 +7,10 @@ public class BlobCharacter : MonoBehaviour {
 
 	public float transitionSpeed = 2f;
 
+	public PathPoint previousPoint;
 	public PathPoint currentPoint;
+
+	public Animator anim;
 
 	private MinMaxVector3 currentPath;
 	private LerpValue pathLerp;
@@ -18,9 +21,12 @@ public class BlobCharacter : MonoBehaviour {
 	{
 		if(currentPoint)
 		{
+			previousPoint = currentPoint;
 			transform.SetParent(currentPoint.transform, true);
 			currentPath = new MinMaxVector3(currentPoint.transform.position, currentPoint.transform.position);
 			pathLerp = new LerpValue(1f);
+			GameController.instance.AddBlob(this);
+			anim.speed = 0.8f;
 		}
 		else
 		{
@@ -31,6 +37,7 @@ public class BlobCharacter : MonoBehaviour {
 	private void Update()
 	{
 		pathLerp.AddDelta(Time.deltaTime * transitionSpeed);
+		currentPath = new MinMaxVector3(previousPoint.transform.position, currentPoint.transform.position);
 		transform.position = currentPath.Lerp(pathLerp.Value);
 		if (!lerpCompleted && pathLerp.Value >= 1f)
 		{
@@ -60,21 +67,29 @@ public class BlobCharacter : MonoBehaviour {
 	{
 		if (currentPoint.isLethal)
 		{
-			Debug.Log("Blog is destroyed!");
+			Despawn();
 		}
 		else
 		{
-			
+			currentPoint.RotateObjectTowardPath(transform);
 		}
 	}
 
 	public void Path_GoToNextPoint(PathPoint nextPathPoint)
 	{
+		anim.SetTrigger("Move");
 		lerpCompleted = false;
 		currentPath = new MinMaxVector3(currentPoint.transform.position, nextPathPoint.transform.position);
 		pathLerp.Zero();
+		previousPoint = currentPoint;
 		currentPoint = nextPathPoint;
 		transform.SetParent(nextPathPoint.transform, true);
+	}
+
+	public void Despawn()
+	{
+		anim.SetTrigger("Despawn");
+		GameController.instance.RemoveBlob(this);
 	}
 
 }

@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PathPoint_Drain : PathPoint {
 
+	public bool contributeToSequenceTrigger;
+
 	public override void ExecutePathBehavior(BlobCharacter blob)
 	{
+		if(contributeToSequenceTrigger)
+		{
+			GameController.instance.AddToSequenceTrigger(1);
+		}
 		//Despawn blob
 	}
 

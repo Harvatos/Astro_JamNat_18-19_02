@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PathPoint_Spawn: PathPoint {
 
-	
+	public GameObject blobPrefab;
+
+	public void SpawnBlob ()
+	{
+		GameObject newBlob = Instantiate(blobPrefab, transform);
+		RotateObjectTowardPath(newBlob.transform);
+	}
 
 #if UNITY_EDITOR
 	private void OnDrawGizmos()
