@@ -51,6 +51,9 @@ public class GameController : MonoBehaviour {
 	private void Start()
 	{
 		player = ReInput.players.GetPlayer("Player");
+		AkSoundEngine.PostEvent("Game_Start", gameObject);
+		//AkSoundEngine.PostEvent("Input_Off", gameObject);
+		//AkSoundEngine.SetState("Input", "Off");
 	}
 
 	public void AddTickObject(ITick toAdd)
@@ -113,6 +116,7 @@ public class GameController : MonoBehaviour {
 		{
 			if (whiteScreen.alpha >= 1f)
 			{
+				AkSoundEngine.PostEvent("Game_Stop", gameObject);
 				SceneManager.LoadScene("MenuScene");
 			}
 		}

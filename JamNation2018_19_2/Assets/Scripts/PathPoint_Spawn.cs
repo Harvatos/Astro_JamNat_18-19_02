@@ -9,6 +9,7 @@ public class PathPoint_Spawn: PathPoint {
 	public void SpawnBlob ()
 	{
 		GameObject newBlob = Instantiate(blobPrefab, transform);
+		newBlob.GetComponent<BlobCharacter>().currentPoint = this;
 		RotateObjectTowardPath(newBlob.transform);
 	}
 

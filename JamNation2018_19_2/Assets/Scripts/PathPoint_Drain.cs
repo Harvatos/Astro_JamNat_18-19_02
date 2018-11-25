@@ -6,13 +6,20 @@ public class PathPoint_Drain : PathPoint {
 
 	public bool contributeToSequenceTrigger;
 
+	public List<PathPoint_Spawn> triggeredSpawnPoints;
+
 	public override void ExecutePathBehavior(BlobCharacter blob)
 	{
 		if(contributeToSequenceTrigger)
 		{
 			GameController.instance.AddToSequenceTrigger(1);
 		}
-		//Despawn blob
+		blob.Despawn();
+
+		foreach (PathPoint_Spawn sP in triggeredSpawnPoints)
+		{
+			sP.SpawnBlob();
+		}
 	}
 
 #if UNITY_EDITOR

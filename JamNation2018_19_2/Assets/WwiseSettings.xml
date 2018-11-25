@@ -9,5 +9,5 @@
   <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
   <WwiseInstallationPathMac />
   <WwiseInstallationPathWindows />
-  <WwiseProjectPath>../../JamNation2018_19_2/Assets/WwiseSoundbank/SYF_SFX.wproj</WwiseProjectPath>
+  <WwiseProjectPath>WwiseSoundbank/Jam Nation II.wproj</WwiseProjectPath>
 </WwiseSettings>
