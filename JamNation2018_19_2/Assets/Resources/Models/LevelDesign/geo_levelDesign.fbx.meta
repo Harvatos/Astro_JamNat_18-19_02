@@ -4013,37 +4013,37 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red
-    second: {fileID: 2100000, guid: 5091c4e1f3950614d996f22714a84b31, type: 2}
+    second: {fileID: 2100000, guid: 0ad3adc13c7095e4bb9b7b14c3f36204, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red1
-    second: {fileID: 2100000, guid: a250b5911ed42e0448f3e5bd83e16e0a, type: 2}
+    second: {fileID: 2100000, guid: 0ad3adc13c7095e4bb9b7b14c3f36204, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red2
-    second: {fileID: 2100000, guid: 5091c4e1f3950614d996f22714a84b31, type: 2}
+    second: {fileID: 2100000, guid: 0ad3adc13c7095e4bb9b7b14c3f36204, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert7
-    second: {fileID: 2100000, guid: 74adea16778253e4196a6731175b178d, type: 2}
+    second: {fileID: 2100000, guid: 44537064e3b7fc144b557c1c1af7ab86, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: purple
-    second: {fileID: 2100000, guid: e6e4b208e01b90e499950d243ac16463, type: 2}
+    second: {fileID: 2100000, guid: 8f8a3b5d7bbd6254caf44e4d29d585e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: purple2
-    second: {fileID: 2100000, guid: e6e4b208e01b90e499950d243ac16463, type: 2}
+    second: {fileID: 2100000, guid: 8f8a3b5d7bbd6254caf44e4d29d585e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: purple3
-    second: {fileID: 2100000, guid: e6e4b208e01b90e499950d243ac16463, type: 2}
+    second: {fileID: 2100000, guid: 8f8a3b5d7bbd6254caf44e4d29d585e5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
