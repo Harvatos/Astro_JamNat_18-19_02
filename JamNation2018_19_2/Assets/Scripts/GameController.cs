@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
 	public float sequenceTimer = 9999f;
 	private int sequenceTrigger = 0;
 
+	private bool spaceIsPressed;
+
     public static GameController instance;
 
     private float nextTick = 0;
@@ -51,8 +53,8 @@ public class GameController : MonoBehaviour {
 	private void Start()
 	{
 		player = ReInput.players.GetPlayer("Player");
-		AkSoundEngine.PostEvent("Game_Start", gameObject);
-		//AkSoundEngine.PostEvent("Input_Off", gameObject);
+		//AkSoundEngine.PostEvent("Game_Start", gameObject);
+		AkSoundEngine.PostEvent("Input_Off", SoundObject.instance.gameObject);
 		//AkSoundEngine.SetState("Input", "Off");
 	}
 
@@ -100,6 +102,7 @@ public class GameController : MonoBehaviour {
 	public void EndGame()
 	{
 		endGameInProgress = true;
+		AkSoundEngine.PostEvent("Input_On", SoundObject.instance.gameObject);
 	}
 
 
@@ -110,13 +113,12 @@ public class GameController : MonoBehaviour {
 		if (player.GetButtonDown("UICancel"))
 		{ EndGame(); }
 
-		whiteScreen.alpha += endGameInProgress ? dt : -dt;
+		whiteScreen.alpha += endGameInProgress ? dt * 0.5f : -dt * 0.5f;
 
 		if (endGameInProgress && whiteScreen.alpha >= 1f)
 		{
 			if (whiteScreen.alpha >= 1f)
 			{
-				AkSoundEngine.PostEvent("Game_Stop", gameObject);
 				SceneManager.LoadScene("MenuScene");
 			}
 		}
@@ -137,10 +139,20 @@ public class GameController : MonoBehaviour {
 				Debug.Log("Tick for blobs");
 				if (!player.GetButton("UISubmit"))
 				{
+					if(spaceIsPressed)
+					{
+						spaceIsPressed = false;
+						AkSoundEngine.PostEvent("Input_Off", SoundObject.instance.gameObject);
+					}
 					foreach (BlobCharacter blob in activeBlob)
 					{
 						blob.AdvanceOnPath();
 					}
+				}
+				else if (!spaceIsPressed)
+				{
+					spaceIsPressed = true;
+					AkSoundEngine.PostEvent("Input_On", SoundObject.instance.gameObject);
 				}
 			}
 			else

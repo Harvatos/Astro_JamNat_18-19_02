@@ -6,10 +6,17 @@ public class PathPoint_Drain : PathPoint {
 
 	public bool contributeToSequenceTrigger;
 
+	public bool endGame = false;
+
 	public List<PathPoint_Spawn> triggeredSpawnPoints;
 
 	public override void ExecutePathBehavior(BlobCharacter blob)
 	{
+		if (endGame)
+		{
+			GameController.instance.EndGame();
+		}
+
 		if(contributeToSequenceTrigger)
 		{
 			GameController.instance.AddToSequenceTrigger(1);

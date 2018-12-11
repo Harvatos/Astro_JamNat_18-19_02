@@ -18,6 +18,11 @@ public class MenuController : MonoBehaviour {
 		playButton.Select();
 	}
 
+	private void Start()
+	{
+		//AkSoundEngine.PostEvent("Input_On", SoundObject.instance.gameObject);
+	}
+
 	void Update ()
 	{
 		if (playCalled)
@@ -30,7 +35,7 @@ public class MenuController : MonoBehaviour {
 		}
 		else
 		{
-			whiteScreen.alpha -= Time.deltaTime;
+			whiteScreen.alpha -= Time.deltaTime * 0.5f;
 		}
 	}
 

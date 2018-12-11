@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df5ff946511db344ad43ef5b2cbdf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 2.5
+  transitionSpeed: 5
   previousPoint: {fileID: 0}
   currentPoint: {fileID: 0}
   anim: {fileID: 95312163014769970}
@@ -525,7 +525,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d96f7554bca9c5841b497c768e0e6f57, type: 2}
+  - {fileID: 2100000, guid: 0e77b928356557d46bcdbb287d6d6c74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

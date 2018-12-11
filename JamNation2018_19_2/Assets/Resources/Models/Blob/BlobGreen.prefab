@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df5ff946511db344ad43ef5b2cbdf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 2.5
+  transitionSpeed: 5
   previousPoint: {fileID: 0}
   currentPoint: {fileID: 0}
   anim: {fileID: 95712126715767160}
